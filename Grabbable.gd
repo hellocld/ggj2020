@@ -11,7 +11,7 @@ func is_grabbed():
 func _on_grabbed(var hand:ARVRController):
 	if _grabbed:
 		return
-	set_mode(RigidBody.MODE_STATIC)
+	mode = RigidBody.MODE_STATIC
 	get_parent().remove_child(self)
 	hand.add_child(self)
 	transform = Transform()
@@ -23,10 +23,11 @@ func _on_released():
 	if !_grabbed:
 		return
 	var t = global_transform
-	set_mode(RigidBody.MODE_RIGID)
 	get_parent().remove_child(self)
 	_parent.add_child(self)
 	global_transform = t
+	mode = RigidBody.MODE_RIGID
+	
 	
 	_grabbed = false
 	print("%s Released" % name)

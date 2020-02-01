@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Spatial.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -16,15 +16,6 @@ data = PoolVector3Array( 25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, 
 [sub_resource type="CylinderShape" id=4]
 radius = 0.5
 height = 1.0
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.831373, 0.0666667, 0.0666667, 1 )
-
-[sub_resource type="CylinderMesh" id=7]
-material = SubResource( 6 )
-top_radius = 0.4
-bottom_radius = 0.4
-height = 0.8
 
 [sub_resource type="CylinderMesh" id=5]
 top_radius = 0.5
@@ -52,10 +43,6 @@ script = ExtResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Grabbable"]
 shape = SubResource( 4 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Grabbable/CollisionShape"]
-mesh = SubResource( 7 )
-material/0 = null
 
 [node name="Cone" type="MeshInstance" parent="Grabbable"]
 mesh = SubResource( 5 )
