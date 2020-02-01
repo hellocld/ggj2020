@@ -46,5 +46,5 @@ func is_grabbing() -> bool:
 func _get_velocity() -> Vector3:
 	var vel = Vector3.ZERO
 	for i in range(_velocity_queue.size()):
-		vel += (_velocity_queue[i] * (float(i) / _velocity_queue.size()))
+		vel += (_velocity_queue[i] * pow(float(i) / _velocity_queue.size(), 3))
 	return vel * _throw_force
