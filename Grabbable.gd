@@ -19,7 +19,7 @@ func _on_grabbed(var hand:ARVRController):
 	print("%s Grabbed" % name)
 
 
-func _on_released():
+func _on_released(var vel):
 	if !_grabbed:
 		return
 	var t = global_transform
@@ -27,7 +27,7 @@ func _on_released():
 	_parent.add_child(self)
 	global_transform = t
 	mode = RigidBody.MODE_RIGID
-	
-	
+	apply_impulse(Vector3.ZERO, vel)
+	print("Impulse %s applied" % vel)
 	_grabbed = false
 	print("%s Released" % name)

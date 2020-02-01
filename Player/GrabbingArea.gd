@@ -14,9 +14,9 @@ func _grab_it():
 		_grabbable.call("_on_grabbed", controller)
 
 
-func _let_go():
+func _let_go(vel):
 	if _grabbable != null and _grabbable.has_method("_on_released"):
-		_grabbable.call("_on_released")
+		_grabbable.call("_on_released", vel)
 
 
 func _on_GrabbingArea_body_entered(body: PhysicsBody):
