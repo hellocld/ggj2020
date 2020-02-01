@@ -29,4 +29,3 @@ func _physics_process(delta):
 	
 	translate(r_stick.x * cam_basis.x.normalized() * delta * _speed)
 	translate(-r_stick.y * cam_basis.z.normalized() * delta * _speed)
-	

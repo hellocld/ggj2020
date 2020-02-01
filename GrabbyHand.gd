@@ -2,8 +2,10 @@ extends ARVRController
 
 var _mesh_basis: Basis
 onready var _velocity_queue = []
-var _queue_size = 60
-onready var _last_pos = transform.origin
+export var _queue_size = 60
+export var _throw_force = 30
+onready var _last_pos = global_transform.origin
+onready var _last_player_pos = get_parent().transform.origin
 
 signal grabbing
 signal releasing(velocity)
@@ -15,8 +17,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	_velocity_queue.push_back(transform.origin - _last_pos)
-	_last_pos = transform.origin
+	_velocity_queue.push_back((global_transform.origin - _last_pos) - 
+			(get_parent().transform.origin - _last_player_pos))
+	_last_pos = global_transform.origin
+	_last_player_pos = get_parent().transform.origin #use this to neutralize player movement while holding something
 	if _velocity_queue.size() > _queue_size:
 		_velocity_queue.pop_front()
 
@@ -42,5 +46,5 @@ func is_grabbing() -> bool:
 func _get_velocity() -> Vector3:
 	var vel = Vector3.ZERO
 	for i in range(_velocity_queue.size()):
-		vel += (_velocity_queue[i] * i)
-	return vel
+		vel += (_velocity_queue[i] * (float(i) / _velocity_queue.size()))
+	return vel * _throw_force
