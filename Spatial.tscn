@@ -2,23 +2,10 @@
 
 [ext_resource path="res://Spatial.gd" type="Script" id=1]
 [ext_resource path="res://ARVROrigin.gd" type="Script" id=2]
+[ext_resource path="res://GrabbyHand.gd" type="Script" id=3]
 
 [sub_resource type="PrismMesh" id=3]
 size = Vector3( 0.25, 0.25, 0.25 )
-
-[sub_resource type="GDScript" id=7]
-script/source = "extends ARVRController
-
-# Joystick axis
-# 0 - Touchpad/Joystick X
-# 1 - Touchpad/Joystick Y
-# 2 - Analog Trigger
-# 3 - Nothing?
-
-# Buttons
-# 
-
-"
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 50, 50 )
@@ -36,18 +23,19 @@ script = ExtResource( 2 )
 
 [node name="ARVRCamera" type="ARVRCamera" parent="ARVROrigin"]
 
-[node name="ARVRLeftController" type="ARVRController" parent="ARVROrigin"]
+[node name="LeftController" type="ARVRController" parent="ARVROrigin"]
+script = ExtResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="ARVROrigin/ARVRLeftController"]
+[node name="Mesh" type="MeshInstance" parent="ARVROrigin/LeftController"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 mesh = SubResource( 3 )
 material/0 = null
 
-[node name="ARVRRightController" type="ARVRController" parent="ARVROrigin"]
+[node name="RightController" type="ARVRController" parent="ARVROrigin"]
 controller_id = 2
-script = SubResource( 7 )
+script = ExtResource( 3 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="ARVROrigin/ARVRRightController"]
+[node name="Mesh" type="MeshInstance" parent="ARVROrigin/RightController"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 mesh = SubResource( 3 )
 material/0 = null
