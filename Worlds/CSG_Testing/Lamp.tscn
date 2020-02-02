@@ -1,7 +1,8 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Worlds/CSG_Testing/lamp_hum.wav" type="AudioStream" id=1]
 
 [node name="Lamp" type="CSGCombiner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518494, 0 )
@@ -25,3 +26,8 @@ smooth_faces = false
 [node name="CSGSphere" type="CSGSphere" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816504, 0 )
 radius = 0.203418
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 1 )
+unit_db = -15.0
+autoplay = true

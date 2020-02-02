@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Worlds/CSG_Testing/TestingMat02.tres" type="Material" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Worlds/CSG_Testing/TestingMat01.tres" type="Material" id=3]
 [ext_resource path="res://Worlds/CSG_Testing/Concrete.tres" type="Material" id=4]
 [ext_resource path="res://Worlds/CSG_Testing/Lamp.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Worlds/CSG_Testing/CrapTurf.tres" type="Material" id=6]
 
 [node name="CSG VR Test" type="Spatial"]
 
@@ -19,6 +20,36 @@ omni_attenuation = 1.41421
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -6 )
 width = 80.0
 depth = 112.0
+material = ExtResource( 6 )
+
+[node name="Sidewalk" type="CSGCombiner" parent="Yard"]
+
+[node name="Base" type="CSGBox" parent="Yard/Sidewalk"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0902116, 9 )
+width = 4.0
+depth = 26.0
+material = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="Yard/Sidewalk/Base"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14 )
+width = 10.0
+depth = 6.0
+material = ExtResource( 3 )
+
+[node name="CSGBox2" type="CSGBox" parent="Yard/Sidewalk/Base/CSGBox"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6, 0, 3.2 )
+operation = 2
+width = 4.0
+height = 4.0
+depth = 4.0
+material = ExtResource( 3 )
+
+[node name="CSGBox3" type="CSGBox" parent="Yard/Sidewalk/Base/CSGBox"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -6, 0, 3.2 )
+operation = 2
+width = 4.0
+height = 4.0
+depth = 4.0
 material = ExtResource( 3 )
 
 [node name="Building" type="CSGCombiner" parent="."]
