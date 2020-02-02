@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="Lamp" type="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518494, 0 )
+light_energy = 3.0
+omni_range = 2.58482
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+radius = 0.3
+height = 0.5
+smooth_faces = false
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.117015, 0 )
+operation = 2
+radius = 0.3
+height = 0.360112
+cone = true
+smooth_faces = false
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.816504, 0 )
+radius = 0.203418
