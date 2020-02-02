@@ -11,11 +11,6 @@
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-[node name="OmniLight" type="OmniLight" parent="Player"]
-light_energy = 0.5
-omni_range = 15.0
-omni_attenuation = 1.41421
-
 [node name="Yard" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -6 )
 width = 80.0

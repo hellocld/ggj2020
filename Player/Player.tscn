@@ -16,6 +16,10 @@ script = ExtResource( 2 )
 
 [node name="ARVRCamera" type="ARVRCamera" parent="."]
 
+[node name="OmniLight" type="OmniLight" parent="ARVRCamera"]
+light_energy = 0.25
+omni_range = 4.06088
+
 [node name="LeftController" type="ARVRController" parent="."]
 script = ExtResource( 1 )
 
@@ -46,6 +50,10 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="RightController/GrabbingArea"]
 shape = SubResource( 2 )
+
+[node name="SpotLight" type="SpotLight" parent="RightController"]
+spot_range = 10.0
+spot_angle = 17.2867
 
 [node name="PlayerPos" type="Spatial" parent="."]
 [connection signal="body_entered" from="LeftController/GrabbingArea" to="LeftController/GrabbingArea" method="_on_GrabbingArea_body_entered"]
