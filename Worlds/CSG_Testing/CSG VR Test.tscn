@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Worlds/CSG_Testing/TestTile01.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+
+[node name="CSG VR Test" type="Spatial"]
+
+[node name="Room" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+use_collision = true
+invert_faces = true
+width = 14.0
+height = 4.0
+depth = 16.0
+material = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]

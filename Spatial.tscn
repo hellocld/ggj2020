@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Spatial.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://shattered_dreams.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Items/TestGrabbable.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
@@ -44,10 +43,6 @@ shape = SubResource( 5 )
 [node name="Grabbable" parent="." instance=ExtResource( 4 )]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.472826, -0.280103, 0.835451, -0.320795, 0.828346, 0.459275, -0.820686, -0.485166, 0.301808, 0, 0, 0 )
+transform = Transform( 0.472826, -0.280103, 0.835451, -0.320795, 0.828346, 0.459276, -0.820686, -0.485166, 0.301808, 0, 0, 0 )
+light_indirect_energy = 0.1
 shadow_enabled = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-volume_db = -17.165
-autoplay = true
